@@ -8,6 +8,11 @@ describe PagesController do
       get 'home'
       response.should be_success
     end
+    it "should have the right title" do
+      get 'home'
+      response.should have_selector("title",
+                        :content => "Sample application | Home")
+    end
   end
 
   describe "GET 'contact'" do
@@ -15,19 +20,34 @@ describe PagesController do
       get 'contact'
       response.should be_success
     end
-  end
+      it "should have the right title" do
+        get 'contact'
+        response.should have_selector("title",
+                          :content => "Sample application | Contact")
+      end
+    end
 
   describe "GET 'about'" do
     it "should be successful" do
       get 'about'
       response.should be_success
     end
+    it "should have the right title" do
+      get 'about'
+      response.should have_selector("title",
+                          :content => "Sample application | About")
+    end
   end
-
+ 
   describe "GET 'help'" do
     it "should be successful" do
       get 'help'
       response.should be_success
+    end
+    it "should have the right title" do
+      get 'help'
+      response.should have_selector("title",
+                          :content => "Sample application | Help")
     end
   end
 end

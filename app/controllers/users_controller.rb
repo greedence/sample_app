@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  # ssl_required  :new, :create
+  
   def show
     @user = User.find(params[:id])
     @title = @user.name
